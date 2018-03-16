@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+After cloning the repository, you can run the application with the following commands in the cloned directory:
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+   bundle install
+   rake db:create db:migrate
+   rails server
+   
+Note I did not get around to adding a /help page even though a view for it exists.
