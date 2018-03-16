@@ -1,0 +1,22 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <%= link_to "GUMS", '#', id: "logo" %>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        
+			<% if logged_in? %>
+				<li><%= link_to "Log Out", '/logout' %></li>
+				<% if is_admin_user? %>
+					<li><%= link_to "Admin", '/users' %></li>					
+				<% end %>
+				<li><%= link_to "Profile", '/users/' + session[:user_id].to_s + '/edit' %></li>
+			<% else %>
+				<li><%= link_to "Sign Up", '/signup.html' %></li>
+				<li><%= link_to "Log In", '/login' %></li>
+			<% end %>
+		
+        <li><%= link_to "Help", 'basic_pages/help' %></li>
+      </ul>
+    </nav>
+  </div>
+</header>

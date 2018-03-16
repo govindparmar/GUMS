@@ -1,0 +1,24 @@
+<% provide(:title, "Registration") %>
+<h1>New User Registration</h1>
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<%= form_for(@user) do |f| %>
+			<%= render 'layouts/error_report' %>
+			<%= f.label :full_name, "Full Name" %>
+			<%= f.text_field :full_name, class: 'form-control' %>
+			<%= f.label :email, "Email Address" %>
+			<%= f.text_field :email, class: 'form-control' %>
+			<%= f.label :phone_number, "Phone Number" %>
+			<%= f.text_field :phone_number, class: 'form-control' %>
+			<%= f.label :date_of_birth, "Date of Birth (YYYY-MM-DD)" %>
+			<%= f.text_field :date_of_birth, class: 'form-control' %>
+			<%= f.label :organization_id, "Organization to Enroll In" %>
+			<%= f.select(:organization_id, @organizations.map { |o| [o.organization_name,o.id]}) %>
+			<%= f.label :password %>
+			<%= f.password_field :password, class: 'form-control'  %>
+			<%= f.label :password_confirmation, "Confirm Password" %>
+			<%= f.password_field :password_confirmation, class: 'form-control'  %>
+			<%= f.submit "Register Account", class: "btn btn-primary" %>
+		<% end %>
+	</div>
+</div>

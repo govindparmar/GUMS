@@ -1,0 +1,18 @@
+<% provide(:title, "Move User") %>
+<h1>Move To New Organization</h1>
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<% if @user.id != @loggedin_user %>
+			<p><b>You must be logged in as the user wishing to move.</b></p>
+		<% else %>
+			<%= form_for @user, url: {action: "domoveuser"} do |f| %>
+				<p><b>Note that any administrative privileges will not be moved into the new organization.</b></p>
+				<%= hidden_field(:id, @user.id) %>
+				<%= f.label :organization_id, "Organization to Enroll In" %>
+				<%= f.select(:organization_id, @organizations.map { |o| [o.organization_name,o.id]}) %>
+			
+				<%= f.submit "Move Account", class: "btn btn-primary" %>
+			<% end %>
+		<% end %>
+	</div>
+</div>

@@ -1,0 +1,19 @@
+<% provide(:title, "Administration") %>
+<h1>Organization Members</h1>
+
+<% if is_admin_user? %>
+
+	<ul class="users">
+	  <% @users.each do |user| %>
+		<% if @loggedin_org == user.organization_id %>
+			<li>
+				<%= link_to user.full_name, 'users/' + user.id.to_s + '/adminedit' %>
+			</li>
+		<% end %>
+	  <% end %>
+	</ul>
+	<%= link_to "Add New User", 'users/adminaddnew' %>
+	
+<% else %>
+	<p><b>This page is restricted to users with administrative access to their organization.</b></p>
+<% end %>
